@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "COVID-19 New cases (15 Sept 2022)",
+    "width": 1600,
+    "height": 800,
+    "projection": {"type": "equalEarth"},
+    "data": {
+      "url": "https://raw.githubusercontent.com/isaaczhou2/week9homework/main/ne_110m_admin_0_countries.topojson",
+      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+    },
+    "transform": [
+      {
+        "lookup": "properties.ISO_A2",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/isaaczhou2/week9homework/main/most_recent_records.csv"
+          },
+          "key": "Country_code",
+          "fields": ["New_cases"]
+        }
+      },
+      {"calculate": "datum.New_cases+0.1", "as": "New cases"}
+    ],
+    "mark": {"type": "geoshape"},
+    "encoding": {
+      "color": {
+        "field": "New cases",
+        "type": "quantitative",
+        "scale": {"type": "log"}
+      },
+      "tooltip": [
+        {"field": "properties.NAME", "type": "nominal", "title": "Country/Region"},
+        {"field": "New_cases", "type": "quantitative", "title": "New cases"}
+      ]
+    }
+  }
