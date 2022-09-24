@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "COVID-19 New cases (15 Sept 2022)",
-    "width": 800,
-    "height": 400,
+    "width": 1600,
+    "height": 800,
     "projection": {"type": "equalEarth"},
     "data": {
       "url": "https://raw.githubusercontent.com/isaaczhou2/week9homework/main/js/ne_110m_admin_0_countries.topojson",
