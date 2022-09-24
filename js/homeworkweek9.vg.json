@@ -58,7 +58,10 @@
             "domain":[100000,5000000,10000000],
             "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
           },
-          "title":"Cumulative cases"
+          "title":"Cumulative cases",
+          "legend":{
+            "format":","
+          }
           }
         ,
         "tooltip": [
